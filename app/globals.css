@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* 添加平滑过渡效果 */
+* {
+  transition: background-color 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* 优化滚动行为 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 导航栏玻璃拟态效果 */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+} 
