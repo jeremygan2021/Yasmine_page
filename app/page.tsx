@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Profile from '@/components/Profile'
 import Education from '@/components/Education'
 import Skills from '@/components/Skills'
@@ -9,17 +9,19 @@ import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
 import NavBar from '@/components/NavBar'
 import SideNav from '@/components/SideNav'
+import LanguageSwitch from '@/components/LanguageSwitch'
 import { SideNavProvider, useSideNav } from '@/contexts/SideNavContext'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
-function MainContent() {
+const MainContent = () => {
   const { isOpen } = useSideNav()
 
   return (
     <motion.div
       className="container mx-auto px-4 py-8 space-y-8"
       animate={{
-        marginLeft: isOpen ? '16rem' : '0', // 当侧边栏打开时，给内容添加左边距
-        width: isOpen ? 'calc(100% - 16rem)' : '100%' // 调整内容宽度
+        marginLeft: isOpen ? '16rem' : '0',
+        width: isOpen ? 'calc(100% - 16rem)' : '100%'
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
@@ -44,12 +46,23 @@ function MainContent() {
   )
 }
 
-export default function Home() {
+const WrappedMainContent = () => {
   return (
     <SideNavProvider>
-      <NavBar />
-      <SideNav />
       <MainContent />
     </SideNavProvider>
+  )
+}
+
+export default function Home() {
+  return (
+    <LanguageProvider>
+      <SideNavProvider>
+        <NavBar />
+        <SideNav />
+        <LanguageSwitch />
+        <WrappedMainContent />
+      </SideNavProvider>
+    </LanguageProvider>
   )
 } 

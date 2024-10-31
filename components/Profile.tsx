@@ -6,8 +6,13 @@ import { motion } from 'framer-motion'
 import { FaLinkedin, FaGithub, FaChartLine, FaDatabase, FaLightbulb } from 'react-icons/fa'
 import { SiDatacamp } from 'react-icons/si'
 import { HiSparkles } from 'react-icons/hi'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { translations, Translations } from '@/locales/translations'
 
 export default function Profile() {
+  const { language } = useLanguage()
+  const t = translations[language as keyof Translations]
+
   return (
     <section className="relative overflow-hidden bg-white rounded-lg shadow-lg">
       {/* 城市背景图片层 */}
@@ -63,7 +68,7 @@ export default function Profile() {
               <div className="flex items-center gap-3">
                 <h1 className="text-4xl font-bold bg-clip-text text-transparent 
                   bg-gradient-to-r from-blue-600 to-purple-600">
-                  杨子婷
+                  {t.profile.name}
                 </h1>
                 <motion.span
                   animate={{ rotate: [0, 10, 0] }}
@@ -84,7 +89,7 @@ export default function Profile() {
               <div className="flex items-center gap-3">
                 <SiDatacamp className="text-blue-500 text-xl" />
                 <p className="text-xl text-gray-700 font-medium">
-                  市场分析与数据科学专家
+                  {t.profile.title}
                 </p>
               </div>
               
@@ -120,8 +125,7 @@ export default function Profile() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                擅长数据分析和市场研究，热衷于将数据洞察转化为商业价值。
-                在多个行业项目中积累了丰富的分析经验。
+                {t.profile.description}
               </motion.p>
 
               {/* 社交链接 */}
