@@ -127,7 +127,7 @@ export default function Profile() {
               {/* 社交链接 */}
               <div className="flex gap-4 pt-4">
                 <motion.a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/ziting-yang-7b33832bb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
@@ -138,7 +138,7 @@ export default function Profile() {
                   <span className="font-medium">LinkedIn</span>
                 </motion.a>
                 <motion.a
-                  href="https://github.com"
+                  href="https://github.com/ztYasmine"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
