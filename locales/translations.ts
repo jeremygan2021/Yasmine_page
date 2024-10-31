@@ -101,6 +101,16 @@ type Translation = {
     details: string
     close: string
   }
+  experience: {
+    title: string
+    items: {
+      title: string
+      company: string
+      period: string
+      description: string[]
+      technologies: string[]
+    }[]
+  }
 }
 
 export type Translations = {
@@ -184,63 +194,84 @@ export const translations: Translations = {
         title: 'HELOC决策支持系统',
         subtitle: '信用风险预测与可视化平台',
         description: [
-          '开发了DSS来预测HELOC申请人的信用风险',
+          '开发决策支持系统(DSS)预测HELOC申请人信用风险',
           '使用Python、Numpy和Scikit-learn构建预测模型',
-          '应用包括决策树、随机森林和SVM的机器学习技术',
-          '创建了使用Streamlit的可视化界面',
-          '使用F1分数和Type II错误评估模型性能'
+          '应用决策树、随机森林、SVM等机器学习技术'
         ],
         achievements: [
           '构建了85%+准确率的预测模型',
-          '开发了直观的用户界面，提高了银行的效率',
-          '实现了实时风险评估'
+          '开发了直观的用户界面'
         ]
       },
       pmg: {
-        title: 'PMG项目',
-        subtitle: '项目管理与数据科学',
+        title: 'PMG生产优化系统',
+        subtitle: '线性规划与成本优化',
         description: [
-          '参与了PMG项目的多个子项目',
-          '负责数据分析和市场研究',
-          '使用Python和SQL进行数据处理和分析'
+          '使用Excel和Python开发线性优化模型',
+          '优化Q1生产计划，最小化生产成本'
         ],
         achievements: [
-          '提高了项目管理效率',
-          '开发了数据驱动的决策支持系统'
+          '显著降低了生产成本',
+          '提高了资源利用效率'
         ]
       },
       education: {
-        title: '教育项目',
-        subtitle: '教育背景与数据科学',
+        title: '教育数据分析平台',
+        subtitle: '学生成绩分析与教育策略优化',
         description: [
-          '参与了多个教育项目的研究',
-          '负责数据分析和市场研究',
-          '使用Python和SQL进行数据处理和分析'
+          '使用Tableau和R分析学生成绩趋势',
+          '进行线性回归分析评估课程类型影响'
         ],
         achievements: [
-          '提高了教育项目的效率',
-          '开发了数据驱动的决策支持系统'
+          '发现了关键的学习趋势',
+          '提供了可行的教育策略建议'
         ]
       },
       business: {
-        title: '商业项目',
-        subtitle: '商业分析与数据科学',
+        title: '业务运营分析系统',
+        subtitle: 'MySQL数据分析与可视化',
         description: [
-          '参与了多个商业项目的研究',
-          '负责数据分析和市场研究',
-          '使用Python和SQL进行数据处理和分析'
+          '执行ETL流程整合数据',
+          '开发SQL查询识别最畅销产品'
         ],
         achievements: [
-          '提高了商业项目的效率',
-          '开发了数据驱动的决策支持系统'
+          '优化了采购策略',
+          '提升了整体业务表现'
         ]
       }
     },
     common: {
       backHome: '返回首页',
-      technologies: '技术',
+      technologies: '技术栈',
       details: '详情',
       close: '关闭'
+    },
+    experience: {
+      title: '工作经验',
+      items: [
+        {
+          title: "研究助理",
+          company: "专利技术功能测量项目",
+          period: "2023",
+          description: [
+            "参与生成式AI项目开发",
+            "进行数据收集与处理",
+            "执行NLP分析任务"
+          ],
+          technologies: ["AI", "NLP", "数据分析"]
+        },
+        {
+          title: "尽职调查分析师",
+          company: "Simon School Venture Fund",
+          period: "2022",
+          description: [
+            "对数字商务领域初创企业进行评估",
+            "分析医疗保健行业竞争态势",
+            "参与投资决策流程"
+          ],
+          technologies: ["市场分析", "财务建模", "行业研究"]
+        }
+      ]
     }
   },
   en: {
@@ -321,53 +352,56 @@ export const translations: Translations = {
         description: [
           'Developed DSS to predict HELOC applicant credit risk',
           'Built prediction models using Python, Numpy, and Scikit-learn',
-          'Applied machine learning techniques including Decision Trees, Random Forests, SVM',
-          'Created interactive visualization interface using Streamlit',
-          'Evaluated model performance using F1 scores and Type II errors'
+          'Applied machine learning techniques including Decision Trees, Random Forests, SVM'
         ],
         achievements: [
           'Built prediction model with 85%+ accuracy',
-          'Developed intuitive user interface improving bank efficiency',
-          'Implemented real-time risk assessment'
+          'Developed intuitive user interface'
         ]
       },
       pmg: {
-        title: 'PMG Project',
-        subtitle: 'Project Management & Data Science',
+        title: 'PMG Production Optimization System',
+        subtitle: 'Linear Programming & Cost Optimization',
         description: [
-          'Participated in multiple subprojects of the PMG project',
-          'Responsible for data analysis and market research',
-          'Data processing and analysis using Python and SQL'
+          'Developed linear optimization model using Excel and Python',
+          'Optimized Q1 production schedule',
+          'Maximized machine utilization',
+          'Conducted sensitivity analysis for cost-saving opportunities'
         ],
         achievements: [
-          'Improved project management efficiency',
-          'Developed data-driven decision support system'
+          'Significantly reduced production costs',
+          'Improved resource utilization',
+          'Provided data-driven decision support to management'
         ]
       },
       education: {
-        title: 'Education Projects',
-        subtitle: 'Education Background & Data Science',
+        title: 'Education Data Analysis Platform',
+        subtitle: 'Student Performance Analysis & Strategy Optimization',
         description: [
-          'Participated in multiple research projects',
-          'Responsible for data analysis and market research',
-          'Data processing and analysis using Python and SQL'
+          'Analyzed student performance trends using Tableau and R',
+          'Conducted linear regression analysis for course impact',
+          'Optimized market segmentation using Elbow Method',
+          'Provided data-driven educational strategy insights'
         ],
         achievements: [
-          'Improved efficiency of education projects',
-          'Developed data-driven decision support system'
+          'Identified key learning trends',
+          'Provided actionable educational strategies',
+          'Optimized course offerings'
         ]
       },
       business: {
-        title: 'Business Projects',
-        subtitle: 'Business Analysis & Data Science',
+        title: 'Business Operations Analysis System',
+        subtitle: 'MySQL Data Analysis & Visualization',
         description: [
-          'Participated in multiple research projects',
-          'Responsible for data analysis and market research',
-          'Data processing and analysis using Python and SQL'
+          'Executed ETL processes integrating six data tables',
+          'Developed SQL queries to identify best-selling products',
+          'Analyzed consumer preferences',
+          'Visualized sales performance using Tableau'
         ],
         achievements: [
-          'Improved efficiency of business projects',
-          'Developed data-driven decision support system'
+          'Optimized procurement strategies',
+          'Improved overall business performance',
+          'Established efficient data analysis pipeline'
         ]
       }
     },
@@ -376,6 +410,33 @@ export const translations: Translations = {
       technologies: 'Technologies',
       details: 'Details',
       close: 'Close'
+    },
+    experience: {
+      title: 'Work Experience',
+      items: [
+        {
+          title: "Research Assistant",
+          company: "Patent Technology Function Measurement Project",
+          period: "2023",
+          description: [
+            "Participated in generative AI project development",
+            "Conducted data collection and processing",
+            "Performed NLP analysis tasks"
+          ],
+          technologies: ["AI", "NLP", "Data Analysis"]
+        },
+        {
+          title: "Due Diligence Analyst",
+          company: "Simon School Venture Fund",
+          period: "2022",
+          description: [
+            "Evaluated startups in digital commerce sector",
+            "Analyzed healthcare industry competitive landscape",
+            "Participated in investment decision-making process"
+          ],
+          technologies: ["Market Analysis", "Financial Modeling", "Industry Research"]
+        }
+      ]
     }
   }
 } 

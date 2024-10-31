@@ -18,30 +18,34 @@ const MainContent = () => {
 
   return (
     <motion.div
-      className="container mx-auto px-4 py-8 space-y-8"
+      className="min-h-screen flex items-center justify-center"
       animate={{
         marginLeft: isOpen ? '16rem' : '0',
         width: isOpen ? 'calc(100% - 16rem)' : '100%'
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <section id="about">
-        <Profile />
-      </section>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <section id="education">
-          <Education />
-        </section>
-        <section id="skills">
-          <Skills />
-        </section>
+      <div className="w-full max-w-7xl mx-auto px-4 py-8 flex flex-col items-center">
+        <div className="w-full max-w-6xl space-y-8">
+          <section id="about" className="w-full">
+            <Profile />
+          </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            <section id="education">
+              <Education />
+            </section>
+            <section id="skills">
+              <Skills />
+            </section>
+          </div>
+          <section id="experience" className="w-full">
+            <Experience />
+          </section>
+          <section id="projects" className="w-full">
+            <Projects />
+          </section>
+        </div>
       </div>
-      <section id="experience">
-        <Experience />
-      </section>
-      <section id="projects">
-        <Projects />
-      </section>
     </motion.div>
   )
 }
@@ -58,10 +62,12 @@ export default function Home() {
   return (
     <LanguageProvider>
       <SideNavProvider>
-        <NavBar />
-        <SideNav />
-        <LanguageSwitch />
-        <WrappedMainContent />
+        <div className="relative min-h-screen">
+          <NavBar />
+          <SideNav />
+          <LanguageSwitch />
+          <WrappedMainContent />
+        </div>
       </SideNavProvider>
     </LanguageProvider>
   )

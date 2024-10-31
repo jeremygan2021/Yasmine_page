@@ -7,6 +7,8 @@ import {
   SiMysql, SiTensorflow, SiScikitlearn 
 } from 'react-icons/si'
 import { FaChartBar, FaChartLine, FaRobot, FaMicrochip } from 'react-icons/fa'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { translations } from '@/locales/translations'
 
 interface SkillLevel {
   name: string
@@ -21,16 +23,35 @@ const programmingSkills: SkillLevel[] = [
   { name: "C", level: 75, icon: <SiC />, color: "purple" },
   { name: "JavaScript", level: 70, icon: <SiJavascript />, color: "yellow" },
   { name: "SQL", level: 65, icon: <SiMysql />, color: "orange" },
-  { name: "硬件开发", level: 40, icon: <FaMicrochip />, color: "red" },
+  { name: "Hardware Dev", level: 40, icon: <FaMicrochip />, color: "red" },
 ]
 
 const analysisSkills: SkillLevel[] = [
-  { name: "统计分析", level: 95, icon: <FaChartBar />, color: "emerald" },
-  { name: "预测建模", level: 90, icon: <FaChartLine />, color: "teal" },
-  { name: "机器学习", level: 85, icon: <FaRobot />, color: "cyan" },
+  { name: "statistics", level: 95, icon: <FaChartBar />, color: "emerald" },
+  { name: "prediction", level: 90, icon: <FaChartLine />, color: "teal" },
+  { name: "machine", level: 85, icon: <FaRobot />, color: "cyan" },
 ]
 
 export default function Skills() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
+  const getSkillName = (skill: SkillLevel) => {
+    if (skill.name === "Hardware Dev") {
+      return t.skills.programming.skills.hardware
+    }
+    if (skill.name === "statistics") {
+      return t.skills.analysis.skills.statistics
+    }
+    if (skill.name === "prediction") {
+      return t.skills.analysis.skills.prediction
+    }
+    if (skill.name === "machine") {
+      return t.skills.analysis.skills.machine
+    }
+    return skill.name
+  }
+
   return (
     <section className="bg-white rounded-lg shadow-lg p-6 relative overflow-hidden">
       {/* 背景装饰 */}
@@ -49,7 +70,7 @@ export default function Skills() {
 
       <div className="relative z-10">
         <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
-          <span>专业技能</span>
+          <span>{t.skills.title}</span>
           <motion.div
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -61,7 +82,9 @@ export default function Skills() {
 
         {/* 编程语言技能 */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold mb-4 text-gray-700">编程语言</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">
+            {t.skills.programming.title}
+          </h3>
           <div className="space-y-4">
             {programmingSkills.map((skill, index) => (
               <motion.div
@@ -78,7 +101,7 @@ export default function Skills() {
                   >
                     {skill.icon}
                   </motion.div>
-                  <span className="font-medium text-gray-700">{skill.name}</span>
+                  <span className="font-medium text-gray-700">{getSkillName(skill)}</span>
                   <span className="text-sm text-gray-500">{skill.level}%</span>
                 </div>
                 <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -96,7 +119,9 @@ export default function Skills() {
 
         {/* 数据分析技能 */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-gray-700">数据分析</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">
+            {t.skills.analysis.title}
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {analysisSkills.map((skill, index) => (
               <motion.div
@@ -119,7 +144,7 @@ export default function Skills() {
                     {skill.level}%
                   </span>
                 </div>
-                <h4 className="font-medium text-gray-700">{skill.name}</h4>
+                <h4 className="font-medium text-gray-700">{getSkillName(skill)}</h4>
                 <div className="mt-2 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <motion.div
                     className={`h-full bg-${skill.color}-500 rounded-full`}

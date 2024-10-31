@@ -7,11 +7,12 @@ import { FaLinkedin, FaGithub, FaChartLine, FaDatabase, FaLightbulb } from 'reac
 import { SiDatacamp } from 'react-icons/si'
 import { HiSparkles } from 'react-icons/hi'
 import { useLanguage } from '@/contexts/LanguageContext'
+import type { Language } from '@/contexts/LanguageContext'
 import { translations, Translations } from '@/locales/translations'
 
 export default function Profile() {
   const { language } = useLanguage()
-  const t = translations[language as keyof Translations]
+  const t = translations[language]
 
   return (
     <section className="relative overflow-hidden bg-white rounded-lg shadow-lg">
@@ -100,21 +101,21 @@ export default function Profile() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <FaChartLine className="text-blue-500" />
-                  <span className="text-blue-600">数据分析</span>
+                  <span className="text-blue-600">{t.profile.skills.dataAnalysis}</span>
                 </motion.div>
                 <motion.div
                   className="flex items-center gap-2 px-3 py-1 bg-purple-50 rounded-full"
                   whileHover={{ scale: 1.05 }}
                 >
                   <FaDatabase className="text-purple-500" />
-                  <span className="text-purple-600">市场研究</span>
+                  <span className="text-purple-600">{t.profile.skills.marketResearch}</span>
                 </motion.div>
                 <motion.div
                   className="flex items-center gap-2 px-3 py-1 bg-indigo-50 rounded-full"
                   whileHover={{ scale: 1.05 }}
                 >
                   <FaLightbulb className="text-indigo-500" />
-                  <span className="text-indigo-600">商业洞察</span>
+                  <span className="text-indigo-600">{t.profile.skills.businessInsight}</span>
                 </motion.div>
               </div>
 
