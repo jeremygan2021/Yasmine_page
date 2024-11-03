@@ -1,0 +1,16 @@
+{
+    "registry-mirrors": [
+        "https://hub-mirror.c.163.com",
+        "https://mirror.baidubce.com",
+        "https://dockerhub.azk8s.cn",
+        "https://registry.docker-cn.com",
+        "https://docker.mirrors.ustc.edu.cn"
+    ],
+    "dns": ["8.8.8.8", "8.8.4.4", "223.5.5.5"],
+    "insecure-registries": [],
+    "debug": true,
+    "experimental": true,
+    "timeout": 120,
+    "max-concurrent-downloads": 3,
+    "max-concurrent-uploads": 3
+}
